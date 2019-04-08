@@ -1,0 +1,11 @@
+Bootstrap-Flask==1.0.10
+Click==7.0
+Flask==1.0.2
+flask-blueprint==1.2.7
+Flask-Script==2.0.6
+itsdangerous==1.1.0
+Jinja2==2.10.1
+MarkupSafe==1.1.1
+PyMySQL==0.9.3
+virtualenv==16.4.3
+Werkzeug==0.15.2
