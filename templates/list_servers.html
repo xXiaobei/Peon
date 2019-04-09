@@ -1,0 +1,41 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+
+    <h3>服务器管理</h3>
+    <hr>
+
+    <table class="table table-primary">
+        <thead>
+        <tr>
+            <th>服务器名称</th>
+            <th>Mysql用户名</th>
+            <th>Mysql端口</th>
+            <th style="width:250px;">&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>lym1</td>
+            <td>testsomeone</td>
+            <td>3306</td>
+            <td>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default">按钮 1</button>
+                    <button type="button" class="btn btn-default">按钮 2</button>
+                    <button type="button" class="btn btn-default">按钮 3</button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <ul class="pagination">
+        <li><a href="#">&laquo;</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">&raquo;</a></li>
+    </ul>
+{% endblock %}

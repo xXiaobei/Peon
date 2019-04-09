@@ -1,0 +1,18 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+
+    <h3>新建服务器</h3>
+    <hr>
+
+    <form class="form-horizontal" role="form" method="post" action="/serverAdd">
+        {{ form.hidden_tag() }}
+        {{ form.server_name }}
+        {{ form.database_user }}
+        {{ form.database_pwd }}
+        {{ form.database_port }}
+        <button class="btn btn-primary" type="submit">创 建</button>
+        </div>
+    </form>
+
+{% endblock %}

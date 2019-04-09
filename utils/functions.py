@@ -24,6 +24,7 @@ def create_app():
 
     #  配置工程相关配置项
     app.config['DEBUG'] = True
+    app.config['SECRET_KEY'] = 'hard very hard guess words'  # falsk 表单防止 csrf 攻击
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///peon.db'
     app.config['SQLALCHEMY_COMMIT_TEARDOWN'] = True
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
