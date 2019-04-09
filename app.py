@@ -1,14 +1,10 @@
-from flask import Flask
-from views import home_blue
-from flask_bootstrap import Bootstrap
+# encoding:utf-8
+#  主程序入口文件
 
-app = Flask(__name__)
+from utils.functions import create_app
 
-# 第三方插件注册
-bootstrap = Bootstrap(app)
-
-# 注册蓝图
-app.register_blueprint(home_blue, prefix='/home')
+#  创建工程
+app = create_app()
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
