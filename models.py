@@ -9,6 +9,7 @@ class Server(db.Model):
     __tablename__ = 'servers'
     id = db.Column(db.Integer, nullable=False, primary_key=True, autoincrement=True)
     server_name = db.Column(db.VARCHAR(length=255), nullable=False)
+    server_ip = db.Column(db.VARCHAR(length=255))
     database_user = db.Column(db.VARCHAR(length=100), nullable=False)
     database_pwd = db.Column(db.VARCHAR(length=100), nullable=False)
     database_port = db.Column(db.Integer, default=3306)

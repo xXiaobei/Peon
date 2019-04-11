@@ -1,16 +1,19 @@
 {% extends 'common/base.html' %}
+{% from 'includes/_macro.html' import form_server_field as serverField, flash_tips %}
 
 {% block content %}
 
     <h3>新建服务器</h3>
+    {{ flash_tips() }}
     <hr>
 
-    <form class="form-horizontal" role="form" method="post" action="/serverAdd">
+    <form role="form" method="post" action="/serverAdd">
         {{ form.hidden_tag() }}
-        {{ form.server_name }}
-        {{ form.database_user }}
-        {{ form.database_pwd }}
-        {{ form.database_port }}
+        {% for ele in form %}
+            {% if  ele.name != "csrf_token" %}
+                {{ serverField(ele, class="form-control") }}
+            {% endif %}
+        {% endfor %}
         <button class="btn btn-primary" type="submit">创 建</button>
         </div>
     </form>
