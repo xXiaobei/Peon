@@ -7,9 +7,12 @@ from utils.forms import ServerForm
 from utils.functions import db
 from models import Server, Domain
 
-session = db.Session()
-
 home_blue = Blueprint('home_blue', __name__)
+
+
+# db.Session() 为 sessionmaker 会话工厂
+# db.session() 是 sessionmaker 产生的一个 线程安全（同一个线程中使用同一个session会话） 的会话对象
+
 
 @home_blue.route('/')
 @home_blue.route('/index')
@@ -39,9 +42,9 @@ def server_add():
                                                      method='pbkdf2:sha1',
                                                      salt_length=8)
         # 添加对象到当前会话中
-        session.add(server)
+        db.session.add(server)
         # 提交当前会话中的对象
-        session.commit()
+        db.session.commit()
 
         flash(u'服务器 %s 创建成功！' % server_form.server_name.data, category='success')
 
