@@ -14,6 +14,7 @@ class Server(db.Model):
     database_pwd = db.Column(db.VARCHAR(length=100), nullable=False)
     database_port = db.Column(db.Integer, default=3306)
     domains = db.relationship("Domain", backref='server')  # 第一多关系的对象体现 backref 在关联的对象上注册 server属性
+    logs = db.relationship('PublishLog', backref='server')
 
     def __repr__(self):
         return '<Servers %s>' % self.server_name
@@ -31,3 +32,16 @@ class Domain(db.Model):
 
     def __repr__(self):
         return '<Domain %s cid:%s cpath:%s>' % (self.domain_name, self.category_id, self.category_path)
+
+
+# 服务器发布日志
+class PublishLog(db.Model):
+    __tablename__ = 'publish_log'
+    id = db.Column(db.Integer, nullable=False, primary_key=True, autoincrement=True)
+    logger_date = db.Column(db.DateTime, nullable=False)
+    logger_success = db.Column(db.Text)
+    logger_error = db.Column(db.Text)
+    server_id = db.Column(db.Integer, db.ForeignKey('servers.id'))
+
+    def __repr__(self):
+        return '<Logger id: %s date: %s>' % (self.id, self.logger_date)

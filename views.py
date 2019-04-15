@@ -1,6 +1,6 @@
 # encoding:utf-8
 
-from flask import Blueprint, request, flash
+from flask import Blueprint, request, flash, jsonify
 from flask import render_template
 from werkzeug.security import generate_password_hash, check_password_hash
 from utils.forms import ServerForm
@@ -17,12 +17,12 @@ home_blue = Blueprint('home_blue', __name__)
 @home_blue.route('/')
 @home_blue.route('/index')
 def index():
-    return render_template('index.html', slidebar=True)
+    return render_template('index.html')
 
 
 @home_blue.route('/server')
 def servers():
-    return render_template('list_servers.html', slidebar=False)
+    return render_template('list_servers.html')
 
 
 @home_blue.route('/serverAdd', methods=['POST', 'GET'])
@@ -52,3 +52,16 @@ def server_add():
         'from_servers.html',
         slidebar=False,
         form=server_form)
+
+
+@home_blue.route('/publish', methods=['GET', 'POST'])
+def arc_publish():
+    server_id = request.args.get("server_id") or -1
+    if server_id != -1:
+        server = Server.query.all()
+
+
+
+
+        return jsonify({"a": 1, "b": 2})
+    return jsonify()
