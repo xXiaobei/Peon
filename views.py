@@ -1,5 +1,7 @@
 # encoding:utf-8
 
+import pymysql
+
 from flask import Blueprint, request, flash, jsonify
 from flask import render_template
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -7,6 +9,7 @@ from utils.forms import ServerForm
 from utils.functions import db
 from models import Server, Domain
 
+db_mysql = None
 home_blue = Blueprint('home_blue', __name__)
 
 
@@ -60,8 +63,9 @@ def arc_publish():
     if server_id != -1:
         server = Server.query.all()
 
+        if not db_mysql:
+            db_mysql = pymysql.connect(host=server.server_ip,port=server.database_port,user=server.database_user,passwd=server.database_pwd,db='')
 
-
-
+        res_json = jsonify(res_dict)
         return jsonify({"a": 1, "b": 2})
     return jsonify()

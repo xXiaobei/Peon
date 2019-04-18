@@ -1,4 +1,4 @@
-// 轮训发布
+// 轮巡发布
 function publish_all() {
     let ser_id = 1;
     //$SCRIPT_ROOT +

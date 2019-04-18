@@ -12,13 +12,3 @@ def init_exts(app):
     db.init_app(app)
     bt.init_app(app)
 
-
-# 将对象转为字典
-def object_to_dictionary(obj):
-    if obj:
-        pass
-
-
-# 链接Server上的mysql库 ??
-def TO_DO():
-    pass
