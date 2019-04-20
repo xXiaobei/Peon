@@ -1,0 +1,12 @@
+{
+    "editor.fontSize": 16,
+    "python.pythonPath": "/home/peon/workStation/pythonVenv/peon/bin/python",
+    "python.linting.pylintPath": "/home/peon/workStation/pythonVenv/peon/bin/pylint",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintArgs": ["--load--plugins","pylint_flask"],
+    "python.autoComplete.addBrackets": true, //自动补全函数括号
+    "python.autoComplete.extraPaths": [
+　　　　"/home/peon/workStation/pythonVenv/peon/lib/python3.7/site-packages" //python 智能提示 第三方库
+　　],
+}

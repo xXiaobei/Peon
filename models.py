@@ -15,7 +15,7 @@ class Server(db.Model):
     database_port = db.Column(db.Integer, default=3306)
     domains = db.relationship("Domain", backref='server')  # 第一多关系的对象体现 backref 在关联的对象上注册 server属性
     logs = db.relationship('PublishLog', backref='server')
-
+    
     def __repr__(self):
         return '<Servers %s>' % self.server_name
 
